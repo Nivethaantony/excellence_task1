@@ -2,11 +2,11 @@ import React from 'react';
 import CallApi from './components/CallApi';
 import SortObject from './components/SortObject';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
-
-function Todo({ todo,index, completeTodo,removeTodo}) {
+function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
-    <div className="todo"   style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+    <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
       {todo.text}
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
@@ -39,12 +39,18 @@ function TodoForm({ addTodo }) {
 
 function App() {
   const [todos, setTodos] = React.useState([
-    { text: "Learn about React",
-    isCompleted: false },
-    { text: "Meet friend for lunch",
-    isCompleted: false },
-    { text: "Build really cool todo app",
-    isCompleted: false }
+    {
+      text: "Learn about React",
+      isCompleted: false
+    },
+    {
+      text: "Meet friend for lunch",
+      isCompleted: false
+    },
+    {
+      text: "Build really cool todo app",
+      isCompleted: false
+    }
   ]);
   const addTodo = text => {
     const newTodos = [...todos, { text }];
@@ -77,7 +83,7 @@ function App() {
             removeTodo={removeTodo}
           />
         ))}
-         <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
